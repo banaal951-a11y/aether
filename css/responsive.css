@@ -1,0 +1,587 @@
+
+/* =========================================
+   AETHER — RESPONSIVE DESIGN
+   Version 2.1
+========================================= */
+
+
+/* =========================================
+   TABLET & SMALL LAPTOP
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .container {
+        width: min(calc(100% - 48px), 100%);
+    }
+
+    /* HERO */
+
+    .hero-section {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+        gap: 30px;
+    }
+
+    .hero-content,
+    .hero-visual {
+        min-width: 0;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+    }
+
+    .orbital-system {
+        max-width: 100%;
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+
+    /* FEATURE GRID */
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature-card {
+        min-width: 0;
+    }
+
+    /* CONTENT */
+
+    .content-section {
+        padding: 80px 0;
+    }
+
+}
+
+
+/* =========================================
+   TABLET & MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* GLOBAL */
+
+    .container {
+        width: min(calc(100% - 40px), 100%);
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    .hero-content,
+    .hero-visual,
+    .content-section,
+    .feature-card {
+        min-width: 0;
+    }
+
+
+    /* =====================================
+       NAVIGATION
+    ===================================== */
+
+    .navbar {
+        position: relative;
+        min-height: 75px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 9px;
+
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+
+        z-index: 1001;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+
+        background: #ffffff;
+        border-radius: 5px;
+
+        transition:
+            transform 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+    .menu-toggle.active span:first-child {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    /*
+       Supports both navigation selectors:
+       .nav-links = alternate navigation selector
+       .nav-menu  = selector used by navigation.js
+    */
+
+    .nav-links,
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        max-height: calc(100dvh - 75px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px 20px 22px;
+
+        background: rgba(8, 11, 20, 0.97);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease,
+            transform 0.3s ease;
+
+        z-index: 1000;
+    }
+
+    .nav-links.open,
+    .nav-links.active,
+    .nav-menu.open,
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        min-height: 44px;
+
+        padding: 14px 4px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-contact {
+        display: block;
+        width: 100%;
+        min-height: 44px;
+
+        margin-top: 15px;
+        text-align: center;
+    }
+
+
+    /* =====================================
+       HERO SECTION
+    ===================================== */
+
+    .hero-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+
+        padding-top: 80px;
+        padding-bottom: 70px;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-title {
+        max-width: 100%;
+        font-size: clamp(2.8rem, 9vw, 4.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-description {
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-visual {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .orbital-system {
+        width: min(100%, 520px);
+        max-width: 100%;
+
+        margin: 20px auto 0;
+
+        transform: scale(0.75);
+        transform-origin: center;
+    }
+
+
+    /* =====================================
+       GENERAL SECTIONS
+    ===================================== */
+
+    .intro-section,
+    .feature-section,
+    .statement-section,
+    .cta-section {
+        padding: 70px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .statement-section {
+        text-align: center;
+    }
+
+
+    /* =====================================
+       CONTENT PAGES
+    ===================================== */
+
+    .page-hero {
+        padding: 110px 0 55px;
+        text-align: center;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        overflow-wrap: anywhere;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    /*
+       Do not force .content-section .container
+       to width: 100%. The global .container
+       width and horizontal gutters should remain.
+    */
+
+
+    /* =====================================
+       INSIGHTS
+    ===================================== */
+
+    .insight-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .insight-card .text-link {
+        grid-column: auto;
+    }
+
+
+    /* =====================================
+       PROJECTS & MODAL
+    ===================================== */
+
+    .project-modal {
+        width: min(92vw, 600px);
+        max-width: 100%;
+        max-height: min(85dvh, 800px);
+
+        margin: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .project-modal img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* =====================================
+       CONTACT
+    ===================================== */
+
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+    /* =====================================
+       FOOTER
+    ===================================== */
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px 25px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    /* GLOBAL */
+
+    .container {
+        width: min(calc(100% - 32px), 100%);
+    }
+
+
+    /* NAVIGATION */
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .nav-links,
+    .nav-menu {
+        max-height: calc(100dvh - 68px);
+    }
+
+
+    /* HERO */
+
+    .hero-section {
+        padding-top: 65px;
+        padding-bottom: 55px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.35rem, 11vw, 2.8rem);
+        line-height: 1.12;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        min-height: 44px;
+        justify-content: center;
+    }
+
+    .orbital-system {
+        transform: scale(0.58);
+        margin-top: -25px;
+        margin-bottom: -35px;
+    }
+
+
+    /* FEATURE GRID */
+
+    .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+
+
+    /* PAGE HERO */
+
+    .page-hero {
+        padding-top: 100px;
+    }
+
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+
+
+    /* CONTENT */
+
+    .content-section {
+        padding: 45px 0;
+    }
+
+
+    /* PROJECT MODAL */
+
+    .project-modal {
+        width: calc(100% - 24px);
+        max-height: 88dvh;
+    }
+
+
+    /* CONTACT */
+
+    .contact-form {
+        padding: 22px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 45px 0 25px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+    .container {
+        width: min(calc(100% - 28px), 100%);
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+    }
+
+    .orbital-system {
+        transform: scale(0.5);
+    }
+
+    .feature-card {
+        padding: 18px;
+    }
+
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-form {
+        padding: 18px;
+    }
+
+    .project-modal {
+        width: calc(100% - 16px);
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY & TOUCH TARGETS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .nav-link,
+    .nav-contact,
+    .btn {
+        min-height: 44px;
+    }
+
+    .menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-links,
+    .nav-menu,
+    .menu-toggle span {
+        scroll-behavior: auto;
+        transition: none;
+    }
+
+}

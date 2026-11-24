@@ -1,0 +1,800 @@
+
+/* =========================================
+   AETHER — ANIMATION & INTERACTION SYSTEM
+   VERSION 2.2
+========================================= */
+
+
+/* =========================================
+   1. GLOBAL KEYFRAMES
+========================================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   2. HERO ANIMATION
+========================================= */
+
+.hero-label {
+    animation: fadeDown 0.8s ease both;
+}
+
+.hero h1,
+.hero-title {
+    animation: fadeUp 1s ease 0.15s both;
+}
+
+.hero-description {
+    animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-actions,
+.hero-buttons {
+    animation: fadeUp 1s ease 0.45s both;
+}
+
+.hero-visual {
+    animation: slideLeft 1.2s ease 0.2s both;
+}
+
+
+/* =========================================
+   3. ORBITAL SYSTEM
+========================================= */
+
+.orbit-one {
+    animation: rotateOrbit 12s linear infinite;
+}
+
+.orbit-two {
+    animation: rotateOrbit 20s linear infinite reverse;
+}
+
+.orbit-three {
+    animation: rotateOrbit 30s linear infinite;
+}
+
+@keyframes rotateOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+/* =========================================
+   4. CORE ORB
+========================================= */
+
+.core-orb {
+    animation: corePulse 4s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 35px rgba(84, 135, 255, 0.7),
+            0 0 100px rgba(120, 80, 255, 0.35);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow:
+            0 0 55px rgba(84, 135, 255, 0.9),
+            0 0 140px rgba(120, 80, 255, 0.5);
+    }
+}
+
+
+/* =========================================
+   5. ORBITAL POINTS
+========================================= */
+
+.point-one {
+    animation: floatOne 5s ease-in-out infinite;
+}
+
+.point-two {
+    animation: floatTwo 6s ease-in-out infinite;
+}
+
+.point-three {
+    animation: floatThree 4s ease-in-out infinite;
+}
+
+@keyframes floatOne {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(15px, -20px); }
+}
+
+@keyframes floatTwo {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-15px, 18px); }
+}
+
+@keyframes floatThree {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -15px); }
+}
+
+
+/* =========================================
+   6. GRADIENT TEXT
+========================================= */
+
+.gradient-text {
+    background-size: 200% auto;
+    animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+
+/* =========================================
+   7. AMBIENT BACKGROUND
+========================================= */
+
+.ambient-glow {
+    animation: ambientMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMove {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, 80px); }
+}
+
+
+/* =========================================
+   8. FEATURE CARD INTERACTION
+========================================= */
+
+.feature-card {
+    position: relative;
+    isolation: isolate;
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    border-radius: inherit;
+
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(84, 135, 255, 0.15),
+        transparent 55%
+    );
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    pointer-events: none;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================
+   9. BUTTON ANIMATION
+========================================= */
+
+.btn,
+.btn-primary,
+.btn-secondary {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-primary span {
+    display: inline-block;
+    transition: transform 0.35s ease;
+}
+
+.btn-primary:hover span {
+    transform: translate(4px, -3px);
+}
+
+.btn.clicked {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   10. SCROLL REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+
+/* =========================================
+   11. PAGE ENTRY
+========================================= */
+
+body {
+    animation: pageEnter 0.7s ease both;
+}
+
+@keyframes pageEnter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* =========================================
+   12. NAVIGATION HOVER
+========================================= */
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link:not(.active)::before {
+    content: "";
+
+    position: absolute;
+    width: 0;
+    height: 1px;
+
+    left: 0;
+    bottom: -5px;
+
+    background: var(--cyan);
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+
+/* =========================================
+   13. FORM FEEDBACK
+========================================= */
+
+.form-status {
+    min-height: 24px;
+    margin-top: 15px;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.form-status.error {
+    color: #ff7777;
+}
+
+.form-status.success {
+    color: #65e6a4;
+}
+
+
+/* =========================================
+   14. BACK TO TOP
+========================================= */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 900;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    background: rgba(16, 23, 39, 0.9);
+    color: #ffffff;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid #8daaff;
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   15. CUSTOM CURSOR
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* Hide native cursor only when custom cursor is active */
+
+    body.has-custom-cursor,
+    body.has-custom-cursor a,
+    body.has-custom-cursor button {
+        cursor: none;
+    }
+
+    /* Preserve text cursor */
+
+    body.has-custom-cursor input,
+    body.has-custom-cursor textarea,
+    body.has-custom-cursor select,
+    body.has-custom-cursor [contenteditable="true"],
+    body.has-custom-cursor [role="textbox"] {
+        cursor: text;
+    }
+
+    .custom-cursor,
+    .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        pointer-events: none;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease;
+    }
+
+    .custom-cursor {
+        width: 35px;
+        height: 35px;
+
+        border: 1px solid rgba(130, 148, 255, 0.8);
+        border-radius: 50%;
+
+        z-index: 99999;
+
+        transform: translate(-50%, -50%);
+
+        transition:
+            width 0.25s ease,
+            height 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease,
+            opacity 0.2s ease,
+            visibility 0.2s ease;
+    }
+
+    .cursor-dot {
+        width: 5px;
+        height: 5px;
+
+        border-radius: 50%;
+        background: #91a2ff;
+
+        z-index: 100000;
+
+        transform: translate(-50%, -50%);
+
+        box-shadow: 0 0 12px #8294ff;
+    }
+
+    .custom-cursor.cursor-visible,
+    .cursor-dot.cursor-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .custom-cursor.cursor-hover {
+        width: 55px;
+        height: 55px;
+
+        background: rgba(110, 130, 255, 0.12);
+        border-color: #a2b0ff;
+    }
+}
+
+
+/* =========================================
+   16. MAGNETIC ELEMENTS
+========================================= */
+
+.magnetic,
+.btn-primary,
+.btn-secondary {
+    transform: translate3d(
+        var(--magnetic-x, 0px),
+        var(--magnetic-y, 0px),
+        0
+    );
+
+    transition: transform 0.3s ease;
+}
+
+
+/* =========================================
+   17. PAGE TRANSITION
+========================================= */
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99990;
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(91, 104, 255, 0.22),
+            transparent 55%
+        ),
+        #080b14;
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+.page-transition.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+
+/* =========================================
+   18. COMMAND PALETTE
+========================================= */
+
+.command-palette {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100001;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 15vh 20px 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.command-palette.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.command-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(3, 6, 15, 0.8);
+
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.command-box {
+    position: relative;
+
+    width: 100%;
+    max-width: 580px;
+    max-height: 70vh;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(130, 148, 255, 0.25);
+    border-radius: 18px;
+
+    background: #0d1322;
+
+    box-shadow: 0 25px 100px rgba(0, 0, 0, 0.5);
+
+    transform: translateY(-15px) scale(0.98);
+
+    transition: transform 0.25s ease;
+}
+
+.command-palette.active .command-box {
+    transform: translateY(0) scale(1);
+}
+
+.command-search {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #8294ff;
+}
+
+.command-search input {
+    flex: 1;
+    min-width: 0;
+
+    color: #ffffff;
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    font: inherit;
+    cursor: text;
+}
+
+.command-search input::placeholder {
+    color: #778197;
+}
+
+.command-search kbd {
+    padding: 5px 8px;
+
+    color: #aab3c8;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+
+    font-size: 11px;
+}
+
+.command-results {
+    max-height: 300px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 10px;
+}
+
+.command-item {
+    display: block;
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: #cbd3e6;
+    background: transparent;
+
+    border: none;
+    border-radius: 9px;
+
+    text-align: left;
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.command-item:hover,
+.command-item.selected {
+    color: #ffffff;
+    background: rgba(105, 125, 255, 0.15);
+}
+
+.command-item:focus-visible {
+    outline: 2px solid #8daaff;
+    outline-offset: -2px;
+}
+
+.command-empty {
+    padding: 20px;
+    color: #778197;
+    text-align: center;
+}
+
+.command-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    padding: 14px 20px;
+
+    color: #778197;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   19. RESPONSIVE INTERACTIONS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .command-palette {
+        padding: 10vh 12px 20px;
+    }
+
+    .command-box {
+        border-radius: 14px;
+    }
+
+    .command-search {
+        padding: 16px;
+    }
+
+    .command-footer {
+        gap: 8px;
+        font-size: 10px;
+    }
+
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+
+/* =========================================
+   20. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .feature-card,
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .magnetic,
+    .back-to-top,
+    .page-transition,
+    .command-box {
+        transition: none !important;
+    }
+
+    .feature-card:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .orbit-one,
+    .orbit-two,
+    .orbit-three,
+    .core-orb,
+    .point-one,
+    .point-two,
+    .point-three,
+    .ambient-glow {
+        animation: none !important;
+    }
+}

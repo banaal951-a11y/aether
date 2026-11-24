@@ -1,0 +1,1028 @@
+
+/* =========================================
+   AETHER — PAGE SPECIFIC STYLING
+   VERSION 2.1
+========================================= */
+
+
+/* =========================================
+   GLOBAL INNER PAGE
+========================================= */
+
+.page-hero {
+    position: relative;
+    min-height: 470px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-top: 90px;
+    padding-bottom: 80px;
+}
+
+.page-hero h1 {
+    max-width: 950px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    line-height: 1.08;
+    overflow-wrap: break-word;
+}
+
+.page-hero p {
+    max-width: 600px;
+
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.content-section {
+    padding-top: 55px;
+    padding-bottom: 100px;
+}
+
+.content-section h2 {
+    max-width: 850px;
+    margin-bottom: 25px;
+
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -2px;
+    line-height: 1.2;
+}
+
+.content-section > p {
+    max-width: 700px;
+
+    color: var(--text-secondary);
+    line-height: 2;
+}
+
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .page-hero {
+    border-bottom: 1px solid var(--border);
+}
+
+body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .page-hero h1 {
+    max-width: 800px;
+}
+
+body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .content-section:first-of-type {
+    padding-top: 110px;
+}
+
+body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .content-section:first-of-type h2 {
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+}
+
+body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .content-section:nth-of-type(2) {
+    margin-bottom: 100px;
+    padding: 70px 40px;
+
+    background: linear-gradient(
+        120deg,
+        rgba(32, 60, 110, 0.12),
+        rgba(100, 60, 150, 0.08)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+
+/* =========================================
+   EXPLORE PAGE
+========================================= */
+
+body:has(a[href="explore.html"].active, a[href="explore.html"][aria-current="page"]) .page-hero {
+    min-height: 520px;
+}
+
+body:has(a[href="explore.html"].active, a[href="explore.html"][aria-current="page"]) .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+body:has(a[href="explore.html"].active, a[href="explore.html"][aria-current="page"]) .feature-card {
+    min-width: 0;
+    min-height: 300px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(75, 120, 255, 0.15),
+            transparent 55%
+        ),
+        var(--bg-card);
+}
+
+body:has(a[href="explore.html"].active, a[href="explore.html"][aria-current="page"]) .feature-card h3 {
+    font-size: 1.6rem;
+}
+
+
+/* =========================================
+   PROJECTS PAGE
+========================================= */
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .page-hero {
+    min-height: 480px;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 24px;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(85, 120, 255, 0.18),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            #18233d,
+            #0d1322
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card:nth-child(2) {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(150, 90, 255, 0.18),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            #211938,
+            #101321
+        );
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card:nth-child(3) {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(60, 210, 255, 0.14),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            #112b38,
+            #0d1420
+        );
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(120, 150, 255, 0.55);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    margin-bottom: 22px;
+
+    border-radius: 10px;
+
+    transition: transform 0.5s ease;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card:hover img {
+    transform: scale(1.025);
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card h3 {
+    margin: 14px 0;
+
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card p {
+    margin-bottom: 15px;
+
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card .eyebrow {
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   PROJECT BUTTON
+========================================= */
+
+.project-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 22px;
+    padding: 11px 18px;
+
+    color: #ffffff;
+    background: rgba(80, 120, 255, 0.10);
+
+    border: 1px solid rgba(110, 140, 255, 0.35);
+    border-radius: 8px;
+
+    font: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-open:hover {
+    background: rgba(80, 120, 255, 0.22);
+    border-color: #7c9cff;
+    transform: translateY(-2px);
+}
+
+.project-open span {
+    transition: transform 0.3s ease;
+}
+
+.project-open:hover span {
+    transform: translate(3px, -3px);
+}
+
+.project-open:focus-visible,
+.modal-close:focus-visible {
+    outline: 2px solid #8daaff;
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   PROJECT MODAL
+========================================= */
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+
+    width: min(90%, 680px);
+    max-width: 680px;
+    max-height: 85vh;
+
+    margin: auto;
+    padding: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+
+    color: #ffffff;
+    background: #0b1222;
+
+    border: 1px solid rgba(120, 150, 255, 0.3);
+    border-radius: 18px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.project-modal:not([open]) {
+    display: none;
+}
+
+.project-modal[open] {
+    display: block;
+    animation: aetherModalEnter 0.25s ease;
+}
+
+.project-modal::backdrop {
+    background: rgba(3, 5, 15, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* MODAL ANIMATION */
+
+@keyframes aetherModalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* MODAL IMAGE */
+
+.modal-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #111a2c;
+}
+
+.modal-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* MODAL CONTENT */
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content h2 {
+    margin: 15px 0;
+
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.2;
+}
+
+.modal-content p {
+    color: #aab5cc;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.modal-label {
+    display: block;
+
+    margin-top: 28px;
+
+    color: #819dff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* MODAL CLOSE */
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: rgba(5, 10, 25, 0.85);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.modal-close:hover {
+    background: #536fff;
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   INSIGHTS PAGE
+========================================= */
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .page-hero {
+    border-bottom: 1px solid var(--border);
+}
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+}
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card {
+    min-width: 0;
+    min-height: 210px;
+
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 25px;
+}
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.3;
+}
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card p {
+    max-width: 500px;
+}
+
+body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card .text-link {
+    grid-column: 2 / -1;
+}
+
+
+/* =========================================
+   CONTACT PAGE
+========================================= */
+
+body:has(a[href="contact.html"].active, a[href="contact.html"][aria-current="page"]) .page-hero {
+    min-height: 520px;
+}
+
+body:has(a[href="contact.html"].active, a[href="contact.html"][aria-current="page"]) .page-hero h1 {
+    max-width: 900px;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 750px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding: 40px;
+
+    background: rgba(17, 25, 43, 0.75);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    min-width: 0;
+
+    padding: 15px 17px;
+
+    color: #ffffff;
+    background: #0a1020;
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    outline: none;
+
+    font: inherit;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 20px rgba(84, 135, 255, 0.12);
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid rgba(141, 170, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.contact-form button {
+    align-self: flex-start;
+}
+
+
+/* =========================================
+   CONTACT FORM FEEDBACK
+========================================= */
+
+#form-status,
+.form-status {
+    min-height: 24px;
+    margin-top: 16px;
+
+    color: var(--cyan);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.form-status.success {
+    color: #65e6ad;
+}
+
+.form-status.error {
+    color: #ff7777;
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-honeypot {
+    position: absolute !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    overflow: hidden !important;
+    clip-path: inset(50%) !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================
+   404 PAGE
+========================================= */
+
+.error-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+}
+
+.error-content {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px 100px;
+
+    text-align: center;
+}
+
+.error-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(9rem, 25vw, 18rem);
+    line-height: 1;
+    letter-spacing: -15px;
+}
+
+.error-content h2 {
+    margin-top: 20px;
+
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+.error-content p {
+    max-width: 450px;
+    margin: 15px 0 30px;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   PROJECT FILTER
+========================================= */
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    min-height: 40px;
+    padding: 10px 18px;
+
+    color: var(--text-secondary);
+    background: rgba(17, 25, 43, 0.7);
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    font: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+    color: #ffffff;
+    border-color: #718cff;
+    background: rgba(80, 120, 255, 0.12);
+}
+
+.filter-btn.active {
+    color: #ffffff;
+
+    background: linear-gradient(
+        120deg,
+        #536fff,
+        #825cff
+    );
+
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(83, 111, 255, 0.2);
+}
+
+.filter-btn:focus-visible {
+    outline: 2px solid #8daaff;
+    outline-offset: 4px;
+}
+
+.feature-card[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   STATISTICS SECTION
+========================================= */
+
+.stats-section {
+    position: relative;
+
+    padding: 100px 8%;
+
+    overflow: hidden;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(91, 104, 255, 0.12),
+            transparent 40%
+        ),
+        #090d18;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stats-heading {
+    margin-bottom: 55px;
+}
+
+.stats-heading h2 {
+    margin-top: 15px;
+
+    font-size: clamp(32px, 5vw, 55px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    position: relative;
+    min-width: 0;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(110, 130, 255, 0.5);
+    background: rgba(80, 100, 255, 0.07);
+}
+
+.stat-number {
+    display: inline-block;
+
+    font-size: clamp(45px, 6vw, 65px);
+    font-weight: 700;
+    letter-spacing: -3px;
+
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #8294ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-plus {
+    color: #8294ff;
+    font-size: 30px;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+.stat-card p {
+    margin-top: 12px;
+
+    color: var(--text-secondary);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* ABOUT */
+
+    body:has(a[href="about.html"].active, a[href="about.html"][aria-current="page"]) .content-section:nth-of-type(2) {
+        margin-bottom: 70px;
+        padding: 40px 25px;
+    }
+
+
+    /* EXPLORE */
+
+    body:has(a[href="explore.html"].active, a[href="explore.html"][aria-current="page"]) .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+    /* PROJECTS */
+
+    body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+    /* INSIGHTS */
+
+    body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    body:has(a[href="insights.html"].active, a[href="insights.html"][aria-current="page"]) .feature-card .text-link {
+        grid-column: auto;
+    }
+
+
+    /* CONTACT */
+
+    .contact-form {
+        padding: 28px;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+    /* MODAL */
+
+    .project-modal {
+        width: 92%;
+        max-height: 88vh;
+    }
+
+
+    /* STATISTICS */
+
+    .stats-section {
+        padding: 75px 6%;
+    }
+
+    .stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .page-hero {
+        min-height: 380px;
+        padding-top: 70px;
+        padding-bottom: 55px;
+    }
+
+    .content-section {
+        padding-top: 35px;
+        padding-bottom: 70px;
+    }
+
+
+    /* PROJECTS */
+
+    body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card {
+        padding: 18px;
+    }
+
+    body:has(a[href="projects.html"].active, a[href="projects.html"][aria-current="page"]) .feature-card h3 {
+        font-size: 1.6rem;
+    }
+
+
+    /* CONTACT */
+
+    .contact-form {
+        padding: 20px;
+    }
+
+
+    /* MODAL */
+
+    .project-modal {
+        width: 94%;
+        max-height: 88vh;
+
+        border-radius: 14px;
+    }
+
+    .modal-content {
+        padding: 22px;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 10px;
+
+        width: 36px;
+        height: 36px;
+    }
+
+
+    /* 404 */
+
+    .error-content h1 {
+        letter-spacing: -8px;
+    }
+
+
+    /* FILTER */
+
+    .project-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+
+    /* STATISTICS */
+
+    .stats-section {
+        padding: 60px 20px;
+    }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .project-modal[open],
+    .project-open,
+    .project-open span,
+    .feature-card,
+    .feature-card img,
+    .modal-close,
+    .stat-card,
+    .filter-btn {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .project-open:hover,
+    .feature-card:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+}
